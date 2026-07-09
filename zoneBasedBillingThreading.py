@@ -232,7 +232,6 @@ class Supplier:
     for i in range(0,numberOfPeriods):
         Result += (usersTupples[u][i][0] + (-1 * usersTupples[u][i][1]))
     #R = randomKeys[0] + randomKeys[0]
-    # Should get agg2 value from MPC
     agg2 = point_add(scalar_mult(Result ,curve.g),scalar_mult(24,curve.g))
     print ("\nComparsision result...")
     if (self.agg[0]==agg2[0]):
@@ -276,7 +275,7 @@ def setUsersData():
     except FileNotFoundError:
         print(f"The file '{file_path}' was not found.")
 
-# Setting zones info, should get this info from MPC
+# Setting zones info
 def ZoneInfo():
     for i in range(0,numberOfUsers):
         for j in range(numberOfPeriods):
@@ -292,7 +291,6 @@ def tdv():
     print('Total deviation',totalDeviation)
 
 # Zonal deviationWeight
-# Should get this data from MPC
 def devWeight():
     for i in range(numberOfPeriods): # loop through the trading periods
         TotalOversupplyingZonesDeviations,TotalUndersupplyingZonesDeviations = 0,0
