@@ -1,10 +1,4 @@
-# Change randoms
-# check remainder: gives incorrect results
-# later, mybe the loop through the periods outside
-#(this requirs massive changes, but it is the right way
-#( we need objects of SMs and users in LEMO and KA and connect them through user ID probably to  create a valid decryption key ))
-# The way I did it, for simplicity, I go through all supplier calls at once and make the KEY authority keys static
-# In that case, we can add threads to the last version with effecint times records
+
 import random
 import os
 import hashlib
@@ -248,7 +242,7 @@ class Supplier:
 
 ''' --------------------------------------------------------------------------------------------------'''
 
-TP = [156,201,233,160,247,210,195,262,187,143] #300 pounds per Watt is the average retail price in UK
+TP = [156,201,233,160,247,210,195,262,187,143] 
 FiT = [100,90,95,100,100,99,97,95,98,99]
 RP = [290,300,295,285,305,290,295,300,310,320]
 ZonesInfo = [[[0 for _ in range(3)] for _ in range(2)] for _ in range(4)]   # 3 values , 4 zones , 2 periods
