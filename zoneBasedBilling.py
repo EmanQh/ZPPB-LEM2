@@ -1,9 +1,3 @@
-# Change randoms
-# check remainder: gives incorrect results
-# later, mybe the loop through the periods outside
-#(this requirs massive changes, but it is the right way
-#( we need objects of SMs and users in LEMO and KA and connect them through user ID probably to  create a valid decryption key ))
-# The way I did it, for simplicity, I go through all supplier calls at once and make the KEY authority keys static
 import random
 import os
 import hashlib
@@ -239,7 +233,6 @@ class Supplier:
     for i in range(0,numberOfPeriods):
         Result += (usersTupples[u][i][0] + (-1 * usersTupples[u][i][1]))
     #R = randomKeys[0] + randomKeys[0]
-    # Should get agg2 value from MPC
     agg2 = point_add(scalar_mult(Result ,curve.g),scalar_mult(24,curve.g))
     print ("\nComparsision result...")
     if (self.agg[0]==agg2[0]):
@@ -249,7 +242,7 @@ class Supplier:
 
 ''' --------------------------------------------------------------------------------------------------'''
 
-TP = [156,201,233,160,247,210,195,262,187,143] #300 pounds per Watt is the average retail price in UK
+TP = [156,201,233,160,247,210,195,262,187,143] 
 FiT = [100,90,95,100,100,99,97,95,98,99]
 RP = [290,300,295,285,305,290,295,300,310,320]
 ZonesInfo = [[[0 for _ in range(3)] for _ in range(2)] for _ in range(4)]   # 3 values , 4 zones , 2 periods
@@ -265,7 +258,6 @@ D = 13
 N = D-1
 
 # Setting users data (two periods, every two tupples belong to one user)
-# To change numberOfPeriods, we need to change the way we read the data
 def setUsersData():
     try:
         with open("/Users/emanahmed/Documents/GitHub/ZPPB-LEM2/data/input-P0-1.txt", 'r') as file:
@@ -300,7 +292,6 @@ def tdv():
     print('Total deviation',totalDeviation)
 
 # Zonal deviationWeight
-# Should get this data from MPC
 def devWeight():
     for i in range(numberOfPeriods): # loop through the trading periods
         TotalOversupplyingZonesDeviations,TotalUndersupplyingZonesDeviations = 0,0
