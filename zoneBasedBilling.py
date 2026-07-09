@@ -276,7 +276,6 @@ def setUsersData():
     except FileNotFoundError:
         print(f"The file '{file_path}' was not found.")
 
-# Setting zones info, should get this info from MPC
 def ZoneInfo():
     for i in range(0,numberOfUsers):
         for j in range(numberOfPeriods):
