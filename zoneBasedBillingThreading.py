@@ -335,7 +335,7 @@ def main():
 #            supplier.ComputeBill(u,i) #Compute bill on encrypted data, per trading period
             supplier.computeIVCommitment(u,i) #Compute IV commitmements and add it to the previus commitmnts
     print("computation time for supplier, per trading period", time.time() - start_time)
-#        supplier.getDecKey(u) #Get bill decryption key from KA
+#        supplier.getDecKey(u) #Get bill decryption key
 #        supplier.decryptBill(u) #Compute and decrypt indivudal bill per billing period
 #        supplier.checkIVCommitments(u) # Validate IV
 
