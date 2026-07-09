@@ -1,7 +1,3 @@
-# Change randoms
-# Add zones, then evaluate
-# correct deviation share according to my values
-# check remainder: gives incorrect results
 import random
 import os
 import hashlib
@@ -233,10 +229,10 @@ class Supplier:
     else:
     	print ("Failure!")
 
-TP = [156,201,233,160,247,210,195,262,187,143] #300 pounds per Watt is the average retail price in UK
+TP = [156,201,233,160,247,210,195,262,187,143] 
 FiT = [100,90,95,100,100,99,97,95,98,99]
 RP = [290,300,295,285,305,290,295,300,310,320]
-vs = [-45,50,37.6,-10,-23,44,-31,39,41,-18] # Deviation share for each period (total deviation (per watt)/number of prosumers or consumers), we should get these values from MPC
+vs = [-45,50,37.6,-10,-23,44,-31,39,41,-18] # Deviation share for each period (total deviation (per watt)/number of prosumers or consumers)
 numberOfUsers = 10
 usersTupples = [[[0 for _ in range(3)] for _ in range(2)] for _ in range(numberOfUsers)] # Three values (mr, tv and type) , two periods and 10 users
 
