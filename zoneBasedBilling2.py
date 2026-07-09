@@ -1,4 +1,3 @@
-# check remainder: gives incorrect results
 import random
 import os
 import hashlib
@@ -191,7 +190,7 @@ class Supplier:
      else:
          return 0
 
-  # supplier computes indivudal bill per trading period
+  # supplier computes individual bill per trading period
   def ComputeBill(self,u,i):
         dev = self.checkDeviations(u,i)
 #   self.BillCT += ((maskedReadings[i] * TP[i]) + ((totalDeviation[i]>0) * (self.checkDeviations(i)>0) * maskedPTypes[i] * totalDeviation[i] *(FiT[i] - TP[i])) + ((totalDeviation[i]<0) * (self.checkDeviations(i)<0) * maskedCTypes[i] * totalDeviation[i] *(RP[i] - TP[i])))
@@ -223,7 +222,6 @@ class Supplier:
     for i in range(0,numberOfPeriods):
         Result += (usersTupples[u][i][0] + (-1 * usersTupples[u][i][1]))
     #R = randomKeys[0] + randomKeys[0]
-    # Should get this value from MPC
     agg2 = point_add(scalar_mult(Result ,curve.g),scalar_mult(24,curve.g))
     print ("\nComparsision result...")
     if (self.agg[0]==agg2[0]):
@@ -233,7 +231,7 @@ class Supplier:
 
 ''' --------------------------------------------------------------------------------------------------'''
 
-TP = [156,201,233,160,247,210,195,262,187,143] #300 pounds per Watt is the average retail price in UK
+TP = [156,201,233,160,247,210,195,262,187,143] 
 FiT = [100,90,95,100,100,99,97,95,98,99]
 RP = [290,300,295,285,305,290,295,300,310,320]
 ZonesInfo = [[[0 for _ in range(3)] for _ in range(2)] for _ in range(4)]   # 3 values , 4 zones , 2 periods
@@ -268,7 +266,6 @@ def setUsersData():
     except FileNotFoundError:
         print(f"The file '{file_path}' was not found.")
 
-# Setting zones info, should get this info from MPC
 def ZoneInfo():
     for i in range(0,numberOfUsers):
         for j in range(numberOfPeriods):
@@ -284,7 +281,6 @@ def tdv():
     print('Total deviation',totalDeviation)
 
 # Zonal deviationWeight
-# Should get this data from MPC
 def devWeight():
     for i in range(numberOfPeriods): # loop through the trading periods
         TotalOversupplyingZonesDeviations,TotalUndersupplyingZonesDeviations = 0,0
